@@ -191,6 +191,13 @@ typedef struct nfc_nci_device {
      * HAL_OPEN_CPLT_EVT will notify when operation is complete.
      */
     int (*power_cycle)(const struct nfc_nci_device *p_dev);
+
+#ifdef NFC_ID_EMULATION
+    /*
+     * (*set_uid)() Set UID for NFCID emulation
+     */
+    int (*set_uid)(const struct nfc_nci_device *p_dev, uint16_t data_len, const uint8_t *p_data);
+#endif /* NFC_ID_EMULATION */
 } nfc_nci_device_t;
 
 /*
